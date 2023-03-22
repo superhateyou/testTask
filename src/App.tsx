@@ -5,7 +5,7 @@ import Button from "./components/button";
 import Circle from "./components/circle";
 import Field from "./components/field";
 
-const App: JSX.Element = () => {
+const App = (): JSX.Element => {
   const defaultDuration = 3;
 
   const [duration, setDuretion] = useState<number>(defaultDuration);
@@ -40,8 +40,13 @@ const App: JSX.Element = () => {
   const getPosition = useRef();
 
   const onClickStart = () => {
-    if (getPosition.current.offsetTop) {
-      setPosition(getPosition.current.offsetTop);
+    const boxObject = getPosition?.current;
+
+    if (boxObject) {
+      const transformedBoxCopy = boxObject as HTMLElement;
+      if (transformedBoxCopy.offsetTop) {
+        setPosition(transformedBoxCopy.offsetTop);
+      }
     }
     setCircleStatus(true);
   };
