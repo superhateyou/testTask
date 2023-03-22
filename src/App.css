@@ -1,0 +1,143 @@
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 500px;
+  height: 500px;
+}
+
+.card {
+  padding: 10px;
+}
+
+.card button {
+  margin: 10px;
+}
+
+.active {
+  transition: all 1s ease-in-out;
+  background-color: greenyellow;
+}
+
+.paused {
+  transition: all 1s ease-in-out;
+  background-color: blue;
+}
+
+.lasts {
+  background-color: rgb(219, 51, 51);
+  animation: ending 1000ms ease-in-out infinite;
+}
+
+.finished {
+  transition: all 1s ease-in-out;
+  background-color: blueviolet;
+}
+
+@keyframes ending {
+  0% {
+    opacity: 0.33;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.33;
+  }
+}
+
+.container {
+  display: flex;
+  /* flex-direction: row;
+  align-items: center;
+  justify-content: space-between; */
+  position: relative;
+  width: 50vw;
+  height: 50vh;
+  background-color: whitesmoke;
+  padding: 10px;
+}
+
+.box {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+
+  background-color: bisque;
+  border: 1px solid black;
+}
+
+.box.target {
+  position: absolute;
+  top: calc(50% - 25px);
+  right: 0;
+}
+
+.box.moving {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: 0;
+  animation: moveBox 5000ms ease-out infinite;
+}
+
+@keyframes moveBox {
+  0% {
+    top: calc(0%);
+  }
+  50% {
+    top: calc(100% - 50px);
+  }
+  100% {
+    top: calc(0%);
+  }
+}
+
+.circle {
+  z-index: 10000;
+  display: flex;
+  width: 30px;
+  height: 30px;
+
+  border-radius: 15px;
+  background-color: blue;
+  position: absolute;
+  animation: moveCircle 3000ms ease 1;
+}
+
+@keyframes moveCircle {
+  0% {
+    left: 0%;
+  }
+  100% {
+    top: calc(50% - 15px);
+    left: calc(100% - 40px);
+  }
+}
+
+.diasbled-button {
+  background-color: red;
+}
+
+.active-button {
+  background-color: greenyellow;
+}
