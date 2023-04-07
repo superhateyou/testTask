@@ -6,6 +6,8 @@ import Circle from "./components/circle";
 import Field from "./components/field";
 
 const App = (): JSX.Element => {
+  console.log("1");
+
   const defaultDuration = 3;
 
   const [duration, setDuretion] = useState<number>(defaultDuration);
